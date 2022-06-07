@@ -106,10 +106,64 @@ public class SinglyLinkedList<T> {
     // Inserta un nuevo nodo en una posicion especifica de la lista
     public void insertNth(T data, int position) {
 
+        System.out.println("el tamano inicial " + size);
+        if (pos < size) {
+            int position = pos - 1;// la posicion debe ser menor al tamaño
+            Node<T> nodo = new Node<T>(data, null);
+            if (pos == 0) {
+                addFirst(data);
+                size++;// modifica el tamaño
+            } else {
+                Node<T> puntero = first;
+                int cont = 0;
+                while (cont < position && puntero.next != null) {
+                    puntero = puntero.next;
+                    cont++;
+                }
+                // swap
+                nodo.next = puntero.next;
+                puntero.next = nodo;
+                size++;// modifica el tamaño
+            }
+        }
+
+        else {
+            System.out.println("Fuera de rango.");
+
+        }
+        System.out.println("EL NUEVO TAMAÑO ES " + size);
+
     }
 
     // Elimina el nodo de una posicion especifica de la lista
     public void deleteNth(int position) {
+ System.out.println("el tamano inicial " + size);
+        if (position < size) {// la posicion debe ser menor o igual al tamaño
+            int pos = position;
+            if (position == 0) {
+                removeFirst();
+                size--;// modifica el tamaño
+            } else {
+                Node<T> puntero = first;
+                int cont = 0;
+                while (cont < (pos - 1)) {
+                    puntero = puntero.next;
+                    cont++;
+                }
+                // swap
+                Node<T> temp = puntero.next;
+                puntero.next = temp.next;
+                temp.next = null;
+                size--;// modifica el tamaño
+            }
+        }
+
+        else {
+            System.out.println("Fuera de rango.");
+
+        }
+        System.out.println("EL NUEVO TAMAÑO ES " + size);
+    }
 
     }
 
