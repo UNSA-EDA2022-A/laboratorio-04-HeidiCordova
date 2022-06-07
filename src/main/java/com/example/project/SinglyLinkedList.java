@@ -106,7 +106,7 @@ public class SinglyLinkedList<T> {
     // Inserta un nuevo nodo en una posicion especifica de la lista
     public void insertNth(T data, int position) {
 
-        System.out.println("el tamano inicial " + size);
+     //   System.out.println("el tamano inicial " + size);
         if (pos < size) {
             int position = pos - 1;// la posicion debe ser menor al tamaño
             Node<T> nodo = new Node<T>(data, null);
@@ -131,13 +131,13 @@ public class SinglyLinkedList<T> {
             System.out.println("Fuera de rango.");
 
         }
-        System.out.println("EL NUEVO TAMAÑO ES " + size);
+    //    System.out.println("EL NUEVO TAMAÑO ES " + size);
 
     }
 
     // Elimina el nodo de una posicion especifica de la lista
     public void deleteNth(int position) {
- System.out.println("el tamano inicial " + size);
+// System.out.println("el tamano inicial " + size);
         if (position < size) {// la posicion debe ser menor o igual al tamaño
             int pos = position;
             if (position == 0) {
@@ -162,15 +162,15 @@ public class SinglyLinkedList<T> {
             System.out.println("Fuera de rango.");
 
         }
-        System.out.println("EL NUEVO TAMAÑO ES " + size);
+    //    System.out.println("EL NUEVO TAMAÑO ES " + size);
     }
 
     }
 
     public static void main(final String[] args) {
 
-        // testExercicio1();
-        // testExercicio2();
+        testExercicio1();
+        testExercicio2();
         testExercicio3();       
 
     }
