@@ -106,17 +106,67 @@ public class SinglyLinkedList<T> {
     // Inserta un nuevo nodo en una posicion especifica de la lista
     public void insertNth(T data, int position) {
 
+      if (pos < size) {
+            int position = pos - 1;// la posicion debe ser menor al tamanioo
+            Node<T> nodo = new Node<T>(data, null);
+            if (pos == 0) {
+                addFirst(data);
+                size++;// modifica el tamanio
+            } else {
+                Node<T> puntero = first;
+                int cont = 0;
+                while (cont < position && puntero.next != null) {
+                    puntero = puntero.next;
+                    cont++;
+                }
+                // swap
+                nodo.next = puntero.next;
+                puntero.next = nodo;
+                size++;// modifica el tamaio
+            }
+        }
+
+        else {
+            System.out.println("Fuera de rango.");
+
+        }
+  
     }
 
     // Elimina el nodo de una posicion especifica de la lista
     public void deleteNth(int position) {
+        if (position < size) {// la posicion debe ser menor o igual al tamanio
+            int pos = position;
+            if (position == 0) {
+                removeFirst();
+                size--;// modifica el tamanio
+            } else {
+                Node<T> puntero = first;
+                int cont = 0;
+                while (cont < (pos - 1)) {
+                    puntero = puntero.next;
+                    cont++;
+                }
+                // swap
+                Node<T> temp = puntero.next;
+                puntero.next = temp.next;
+                temp.next = null;
+                size--;// modifica el tamanioo
+            }
+        }
+
+        else {
+            System.out.println("Fuera de rango.");
+
+        }
+   }
 
     }
 
     public static void main(final String[] args) {
 
-        // testExercicio1();
-        // testExercicio2();
+        testExercicio1();
+        testExercicio2();
         testExercicio3();       
 
     }
